@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Title from "../../Components/Title";
 
-const Menu = () => {
+const Popularmenu = () => {
     const [menus, setMenus] = useState([])
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const Menu = () => {
                 {
                     menus.map(menu => <>
                         <div className=" flex gap-4">
-                            <img style={{ borderRadius: '0 200px 200px 200px'}} className="w-[100px]" src={menu.image} alt="" />
+                            <img style={{ borderRadius: '0 200px 200px 200px' }} className="w-[100px]" src={menu.image} alt="" />
                             <div>
                                 <h2 className=" text-xl uppercase">{menu.name}----------</h2>
                                 <p>{menu.recipe}</p>
@@ -33,8 +33,11 @@ const Menu = () => {
                     </>)
                 }
             </div>
+            <div className=" flex flex-col justify-center items-center">
+                <button className="btn btn-outline border-0 border-b-4 mt-7">View all</button>
+            </div>
         </div>
     );
 };
 
-export default Menu;
+export default Popularmenu;

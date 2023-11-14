@@ -1,6 +1,5 @@
 import Title from "../../Components/Title";
 import img from '../../assets/home/featured.jpg'
-
 import './featured.css'
 
 const Featred = () => {
