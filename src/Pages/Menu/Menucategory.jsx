@@ -1,8 +1,16 @@
-const Menucategory = ({ items }) => {
+import { Link } from "react-router-dom";
+import Cover from "../../Shared/Cover";
+
+const Menucategory = ({ items, title, img }) => {
 
     return (
-        <div className=" my-10">
-            <div className=" grid md:grid-cols-2 grid-cols-1 gap-5">
+        <div>
+            { title && <Cover
+                img={img}
+                title={title}
+                subtitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown'}
+            ></Cover>}
+            <div className="mt-5 grid md:grid-cols-2 grid-cols-1 gap-5">
                 {
                     items.map(menu => <>
                         <div className=" flex gap-4">
@@ -17,7 +25,9 @@ const Menucategory = ({ items }) => {
                 }
             </div>
             <div className=" flex flex-col justify-center items-center">
-                <button className="btn btn-outline border-0 border-b-4 mt-7">ORDER YOUR FAVOURITE FOOD</button>
+                <Link to={`/shop/${title}`}>
+                    <button className="btn btn-outline border-0 border-b-4 my-7">ORDER YOUR FAVOURITE FOOD</button>
+                </Link>
             </div>
         </div>
     );

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Title from "../../Components/Title";
 import Usemenu from "../../hooks/Usemenu";
 
@@ -26,7 +27,9 @@ const Popularmenu = () => {
                 }
             </div>
             <div className=" flex flex-col justify-center items-center">
-                <button className="btn btn-outline border-0 border-b-4 mt-7">View all</button>
+                <Link to='/shop/salad'>
+                    <button className="btn btn-outline border-0 border-b-4 mt-7">View all</button>
+                </Link>
             </div>
         </div>
     );
