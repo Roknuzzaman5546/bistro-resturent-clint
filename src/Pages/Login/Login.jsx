@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import loginimg from '../../assets/others/authentication1.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Authcontext } from '../../Components/Authprovaider/Authprovider';
 
 const Login = () => {
+    const { userLogin } = useContext(Authcontext)
     const [dilsabled, setDisabled] = useState(true);
 
     const handleLogin = e => {
@@ -12,17 +14,24 @@ const Login = () => {
         const email = from.email.value;
         const password = from.password.value;
         console.log(email, password)
-
+        userLogin(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user) 
+        }) 
+        .catch(error =>{
+            console.log(error)
+        })
     }
 
-    
+
     useEffect(() => {
         loadCaptchaEnginge(6);
     }, [])
 
     const handleCaptcha = e => {
         const user_captcha_value = e.target.value;
-        if (validateCaptcha(user_captcha_value)){
+        if (validateCaptcha(user_captcha_value)) {
             setDisabled(false)
         }
 

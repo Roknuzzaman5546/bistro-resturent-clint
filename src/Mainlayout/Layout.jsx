@@ -5,7 +5,7 @@ import Navbar from '../Shared/Navbar';
 const Layout = () => {
     const location = useLocation();
 
-    const navfooterhide = location.pathname.includes('login');
+    const navfooterhide = location.pathname.includes('login') || location.pathname.includes('register');
 
     return (
         <div>
