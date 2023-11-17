@@ -1,12 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginimg from '../../assets/others/authentication1.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useContext, useEffect, useState } from 'react';
 import { Authcontext } from '../../Components/Authprovaider/Authprovider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { userLogin } = useContext(Authcontext)
     const [dilsabled, setDisabled] = useState(true);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const form = location.state?.from?.pathname || '/';
 
     const handleLogin = e => {
         e.preventDefault();
@@ -18,6 +23,8 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user) 
+            Swal.fire("user logged in succesfully!")
+            navigate(form)
         }) 
         .catch(error =>{
             console.log(error)

@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Authcontext } from "../Components/Authprovaider/Authprovider";
+import { FaCartShopping } from 'react-icons/fa6';
+import useCarts from "../hooks/useCarts";
 
 const Navbar = () => {
     const { user, userLogout } = useContext(Authcontext)
+    const [cart] = useCarts();
 
     const handlLogout = () => {
         userLogout()
@@ -25,7 +28,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar max-w-screen-lg text-white fixed z-10 opacity-30 bg-black">
+            <div className="navbar max-w-screen-lg mx-auto text-white fixed z-10 opacity-30 bg-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,16 +40,18 @@ const Navbar = () => {
                     </div>
                     <a className="btn btn-ghost text-white text-xl font-bold font-Chinzel">BISTRO BOSS</a>
                 </div>
-                <div className=" navbar-center hidden lg:flex">
+                <div className="navbar-center hidden lg:flex btn btn-secondary">
                     <ul className="menu menu-horizontal px-1">
                         {manu}
                     </ul>
                 </div>
-                <div className="">
-
+                <div className=" navbar-end">
                     {user ?
                         <>
-                            <h2 className="mr-4 font-bold">{user.displayName}</h2>
+                            <button className="btn mr-2">
+                            <FaCartShopping />
+                                <div className="badge badge-secondary">{cart.length}</div>
+                            </button>   
                             <button className=" btn" onClick={handlLogout}>Log out</button>
                         </>
                         :

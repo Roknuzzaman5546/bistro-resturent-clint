@@ -26,7 +26,7 @@ const Register = () => {
                     .catch(error => {
                         console.log(error)
                     })
-                Swal.fire("SweetAlert2 is working!");
+                Swal.fire("User succesfully creat asnd update profile!");
                 reset();
             })
             .catch(error => {

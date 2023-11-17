@@ -7,6 +7,7 @@ import Menu from "../Pages/Menu/Menu";
 import Shop from "../Pages/Shop/Shop";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import Privet from "../Privetrout/Privet";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/shop/:category',
-        element: <Shop></Shop>
+        element: <Privet><Shop></Shop></Privet>
       },
       {
         path: '/login',
