@@ -4,6 +4,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { useContext, useEffect, useState } from 'react';
 import { Authcontext } from '../../Components/Authprovaider/Authprovider';
 import Swal from 'sweetalert2';
+import ScoilLogin from '../../Shared/ScoilLogin';
 
 const Login = () => {
     const { userLogin } = useContext(Authcontext)
@@ -81,6 +82,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button disabled={dilsabled} className="btn btn-primary">Login</button>
                         </div>
+                        <ScoilLogin></ScoilLogin>
                         <h2>If you new in our resturent go to <Link to='/register'><span className=' text-blue-500 font-bold text-xl'>Register</span></Link></h2>
                     </form>
                 </div>

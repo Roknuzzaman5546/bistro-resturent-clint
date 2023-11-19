@@ -48,10 +48,12 @@ const Navbar = () => {
                 <div className=" navbar-end">
                     {user ?
                         <>
-                            <button className="btn mr-2">
-                            <FaCartShopping />
-                                <div className="badge badge-secondary">{cart.length}</div>
-                            </button>   
+                            <Link to="/dashbord/cart">
+                                <button className="btn mr-2">
+                                    <FaCartShopping />
+                                    <div className="badge badge-secondary">{cart.length}</div>
+                                </button>
+                            </Link>
                             <button className=" btn" onClick={handlLogout}>Log out</button>
                         </>
                         :

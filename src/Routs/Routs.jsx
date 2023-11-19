@@ -8,6 +8,11 @@ import Shop from "../Pages/Shop/Shop";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Privet from "../Privetrout/Privet";
+import Dashbord from "../Mainlayout/Dashbord";
+import Cart from "../Pages/dashbord/Cartdash";
+import Bookingsdash from "../Pages/dashbord/Bookingsdash";
+import Adminusers from "../Pages/dashbord/Adminusers";
+
 
 export const router = createBrowserRouter([
   {
@@ -36,4 +41,23 @@ export const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: "/dashbord",
+    element: <Dashbord></Dashbord>,
+    children: [
+      {
+        path: 'cart',
+        element: <Cart></Cart>
+      },
+      {
+        path: 'booking',
+        element: <Bookingsdash></Bookingsdash>
+      },
+      {
+        path: 'Users',
+        element: <Adminusers></Adminusers>
+      }
+    ]
+  }
+  
 ]);
