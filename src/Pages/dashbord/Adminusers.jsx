@@ -13,8 +13,18 @@ const Adminusers = () => {
         }
     })
 
-    const handleMakeadmin = id =>{
-        console.log('admin related', id)
+    const handleMakeadmin = item => {
+        console.log('admin related', item)
+        axiossecure.patch(`/users/admin/${item._id}`)
+            .then(res => {
+                console.log(res.data)
+                refetch();
+                Swal.fire({
+                    title: "Updated!",
+                    text: `${item._id} is Admin updated`,
+                    icon: "success"
+                });
+            })
     }
 
     const handleDelete = id => {
@@ -28,7 +38,7 @@ const Adminusers = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiossecure.delete(`/carts/${id}`)
+                axiossecure.delete(`/users/${id}`)
                     .then(res => {
                         refetch();
                         console.log(res.data)
@@ -70,9 +80,9 @@ const Adminusers = () => {
                                     <td>{item.name}</td>
                                     <td>{item.email}</td>
                                     <td>
-                                        <button onClick={() => handleMakeadmin(item._id)} className="btn btn-square text-red-500 text-xl">
+                                        {item.role === 'admin' ? "Admin" : <button onClick={() => handleMakeadmin(item)} className="btn btn-square text-red-500 text-xl">
                                             <FaUsers></FaUsers>
-                                        </button>
+                                        </button>}
                                     </td>
                                     <td>
                                         <button onClick={() => handleDelete(item._id)} className="btn btn-square text-red-500">
