@@ -1,12 +1,13 @@
-import { FaCalendar, FaCartShopping, FaCookie, FaHouseMedical, FaHouse, FaUtensils, FaList, FaBook,  FaUsers } from "react-icons/fa6";
+import { FaCalendar, FaCartShopping, FaCookie, FaHouseMedical, FaHouse, FaUtensils, FaList, FaBook, FaUsers } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import { CiMenuBurger, CiShoppingBasket } from "react-icons/ci";
 import useCarts from "../hooks/useCarts";
+import Useadmin from "../hooks/Useadmin";
 
 
 const Dashbord = () => {
     const [carts] = useCarts();
-    const isAdmin = true;
+    const [isAdmin] = Useadmin();
     return (
         <div className=" flex p-5">
             <div className=" w-64 h-screen bg-orange-400">

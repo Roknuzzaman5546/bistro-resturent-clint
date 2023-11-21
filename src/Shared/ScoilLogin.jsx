@@ -19,7 +19,6 @@ const ScoilLogin = () => {
                 }
                 axiospublic.post('/users', userInfo)
                     .then(res => {
-                        console.log(res.data)
                         if (res.data.insertedId) {
                             Swal.fire("user logged in and user add succesfully!")
                             navigate('/')
