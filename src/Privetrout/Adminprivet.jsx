@@ -7,6 +7,7 @@ const Adminprivet = ({ children }) => {
     const { user, loading } = useContext(Authcontext)
     const [isAdim, isAdminloading] = Useadmin()
     const location = useLocation();
+    
     if (loading || isAdminloading) {
         return <h2 className=" mt-40 text-center font-bold text-2xl font-Chinzel">Data is loading .........</h2>
     }

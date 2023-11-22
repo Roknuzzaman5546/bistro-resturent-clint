@@ -13,6 +13,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const form = location.state?.from?.pathname || '/';
+    console.log(form)
 
     const handleLogin = e => {
         e.preventDefault();
@@ -25,7 +26,7 @@ const Login = () => {
             const user = result.user;
             console.log(user) 
             Swal.fire("user logged in succesfully!")
-            navigate(form)
+            navigate('/')
         }) 
         .catch(error =>{
             console.log(error)

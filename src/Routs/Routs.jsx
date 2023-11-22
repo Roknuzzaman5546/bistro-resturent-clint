@@ -12,6 +12,8 @@ import Dashbord from "../Mainlayout/Dashbord";
 import Cart from "../Pages/dashbord/Cartdash";
 import Bookingsdash from "../Pages/dashbord/Bookingsdash";
 import Adminusers from "../Pages/dashbord/Adminusers";
+import Additems from "../Pages/dashbord/Additems";
+
 
 
 export const router = createBrowserRouter([
@@ -43,7 +45,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashbord",
-    element: <Dashbord></Dashbord>,
+    element: <Privet><Dashbord></Dashbord></Privet>,
     children: [
       {
         path: 'cart',
@@ -56,6 +58,10 @@ export const router = createBrowserRouter([
       {
         path: 'Users',
         element: <Adminusers></Adminusers>
+      },
+      {
+        path: 'additems',
+        element: <Additems></Additems>
       }
     ]
   }

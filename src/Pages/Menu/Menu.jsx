@@ -28,8 +28,8 @@ const Menu = () => {
             <Title
                 Subheading={'---Dont miss---'}
                 heading={'TODAYS OFFER'}
-                ></Title>
-            <Menucategory
+                    ></Title>
+                <Menucategory
                 items={offered}
             ></Menucategory>
 
