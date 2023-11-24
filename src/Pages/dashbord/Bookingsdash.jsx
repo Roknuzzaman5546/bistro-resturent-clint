@@ -2,6 +2,8 @@ import { FaTrash } from "react-icons/fa6";
 import useCarts from "../../hooks/useCarts";
 import useAxiosSecure from "../../hooks/useaxiosSecure";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+
 
 
 const Bookingsdash = () => {
@@ -9,8 +11,8 @@ const Bookingsdash = () => {
     const totalprice = cart.reduce((total, item) => total + item.price, 0)
     const axiossecure = useAxiosSecure();
 
-    const handleDelete = (id) => {
 
+    const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -24,7 +26,7 @@ const Bookingsdash = () => {
                 axiossecure.delete(`/carts/${id}`)
                     .then(res => {
                         refetch();
-                        console.log(res.data)   
+                        console.log(res.data)
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
@@ -39,11 +41,16 @@ const Bookingsdash = () => {
     }
 
     return (
-        <div>
-            <div className=" flex items-center justify-evenly">
+        <div className="ml-5">
+            <div className=" flex items-center justify-evenly mb-5">
                 <h2 className=" text-3xl font-bold text-center">Total cart: {cart.length}</h2>
                 <h2 className=" text-3xl font-bold text-center">Total price: {totalprice}</h2>
-                <h2 className=" btn btn-primary">Pay</h2>
+                {cart.length ? <Link to="/dashbord/payment">
+                    <button className="btn btn-primary">Pay</button>
+                </Link>
+                    :
+                    <button disabled={!cart.length} className="btn btn-primary">Pay</button>
+                }
             </div>
 
             <div className="overflow-x-auto">

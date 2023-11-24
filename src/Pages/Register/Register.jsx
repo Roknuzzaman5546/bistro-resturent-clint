@@ -48,22 +48,6 @@ const Register = () => {
     }
     console.log(watch("example"))
 
-    // const handleRegister = e => {
-    //     e.preventDefault();
-    //     const from = e.target;
-    //     const name = from.name.value;
-    //     const photo = from.photo.value;
-    //     const email = from.email.value;
-    //     const password = from.password.value;
-    //     console.log(name, photo, email, password)
-    //     userRegister(email, password)
-    //     .then(result =>{
-    //         const user = result.user;
-    //         console.log(user)
-    //     })
-    //     .catch
-    // }
-
     return (
         <div className="hero min-h-screen ">
             <div className="hero-content flex-col lg:flex-row">

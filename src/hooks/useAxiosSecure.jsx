@@ -7,7 +7,7 @@ const axiossecure = axios.create({
     baseURL: 'http://localhost:5000'
 })
 
-const useAxiosSecure = () => {
+const UseAxiosSecure = () => {
     const { userLogout } = useContext(Authcontext)
     const navigate = useNavigate()
     axiossecure.interceptors.request.use(function (config) {
@@ -28,7 +28,7 @@ const useAxiosSecure = () => {
         // console.log('axios token token errror is', error.response.status)
         if (status === 401 || status === 403) {
             await userLogout();
-            navigate('/login')
+            navigate('/')
         }
         return Promise.reject(error);
     });
@@ -36,4 +36,4 @@ const useAxiosSecure = () => {
 };
 
 
-export default useAxiosSecure;
+export default UseAxiosSecure;

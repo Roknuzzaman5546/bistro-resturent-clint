@@ -8,11 +8,13 @@ import Shop from "../Pages/Shop/Shop";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Privet from "../Privetrout/Privet";
+import Adminprivet from "../Privetrout/Adminprivet";
 import Dashbord from "../Mainlayout/Dashbord";
 import Cart from "../Pages/dashbord/Cartdash";
 import Bookingsdash from "../Pages/dashbord/Bookingsdash";
 import Adminusers from "../Pages/dashbord/Adminusers";
 import Additems from "../Pages/dashbord/Additems";
+import Payment from "../Pages/dashbord/Payment";
 
 
 
@@ -56,14 +58,19 @@ export const router = createBrowserRouter([
         element: <Bookingsdash></Bookingsdash>
       },
       {
+        path: 'payment',
+        element: <Payment></Payment>
+      },
+      // admin related
+      {
         path: 'Users',
-        element: <Adminusers></Adminusers>
+        element: <Adminprivet><Adminusers></Adminusers></Adminprivet>
       },
       {
         path: 'additems',
-        element: <Additems></Additems>
+        element: <Adminprivet><Additems></Additems></Adminprivet>
       }
     ]
   }
-  
+
 ]);
