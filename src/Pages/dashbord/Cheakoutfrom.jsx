@@ -7,16 +7,13 @@ const Cheakoutfrom = () => {
     const elements = useElements();
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         if (!stripe || !elements) {
             return;
         }
-
         const card = elements.getElement(CardElement)
         if (card === null) {
             return;
         }
-
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card
